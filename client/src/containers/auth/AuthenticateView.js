@@ -47,37 +47,6 @@ class Authenticate extends Component {
         style={[styles.logo]}
       />
 
-    /  // <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-      //   <View style={[AppStyles.flex1]}>
-      //     <Button
-      //       title={'Login'}
-      //       icon={{ name: 'lock' }}
-      //       onPress={Actions.login}
-      //       backgroundColor={'#CB009E'}
-      //     />
-      //   </View>
-      // </View>
-
-      // <Spacer size={10} />
-
-      // <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-      //   <View style={[AppStyles.flex1]}>
-      //     <Button
-      //       title={'Sign up'}
-      //       icon={{ name: 'face' }}
-      //       onPress={Actions.signUp}
-      //       backgroundColor={'#CB009E'}
-      //     />
-      //   </View>
-      // </View>
-
-      <Spacer size={15} />
-
-      <Text p style={[AppStyles.textCenterAligned, styles.whiteText]}>
-        - or -
-      </Text>
-
-      <Spacer size={10} />
 
       <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
         <View style={[AppStyles.flex1]} />
