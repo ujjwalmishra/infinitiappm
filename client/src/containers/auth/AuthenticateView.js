@@ -47,29 +47,29 @@ class Authenticate extends Component {
         style={[styles.logo]}
       />
 
-      <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-        <View style={[AppStyles.flex1]}>
-          <Button
-            title={'Login'}
-            icon={{ name: 'lock' }}
-            onPress={Actions.login}
-            backgroundColor={'#CB009E'}
-          />
-        </View>
-      </View>
+    /  // <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
+      //   <View style={[AppStyles.flex1]}>
+      //     <Button
+      //       title={'Login'}
+      //       icon={{ name: 'lock' }}
+      //       onPress={Actions.login}
+      //       backgroundColor={'#CB009E'}
+      //     />
+      //   </View>
+      // </View>
 
-      <Spacer size={10} />
+      // <Spacer size={10} />
 
-      <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-        <View style={[AppStyles.flex1]}>
-          <Button
-            title={'Sign up'}
-            icon={{ name: 'face' }}
-            onPress={Actions.signUp}
-            backgroundColor={'#CB009E'}
-          />
-        </View>
-      </View>
+      // <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
+      //   <View style={[AppStyles.flex1]}>
+      //     <Button
+      //       title={'Sign up'}
+      //       icon={{ name: 'face' }}
+      //       onPress={Actions.signUp}
+      //       backgroundColor={'#CB009E'}
+      //     />
+      //   </View>
+      // </View>
 
       <Spacer size={15} />
 
@@ -84,7 +84,7 @@ class Authenticate extends Component {
         <View style={[AppStyles.flex2]}>
           <Button
             small
-            title={'Skip'}
+            title={'Create New Infinity ID'}
             onPress={Actions.app}
             raised={false}
             backgroundColor={'rgba(255,255,255,0.2)'}
