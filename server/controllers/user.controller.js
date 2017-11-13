@@ -1,5 +1,6 @@
 import User from '../models/user.model';
-import Ownership from '../models/ownership.model'
+import Ownership from '../models/ownership.model';
+import bdb from '../bdb';
 
 /**
  * Load user and append to req.
@@ -99,18 +100,23 @@ function transferAsset(req, res, next) {
  * Create User id asset.
  * @returns id of Asset
  */
- function createUserIdAsset(req, res, next) {
+function createUserIdAsset(req, res, next) {
 
- }
+}
 
 
 /**
  * Get user transactions history.
  * @returns {Transactions}
  */
- function getTransactions(req, res, next) {
+function getTransactions(req, res, next) {
 
- }
+  bdb.getTransactionByAsset(req.body.assetId)
+  .then(transactions => res.json(transactions)
+  )
+  .catch( e => console.log(e) );
+  
+}
 
-export default { load, get, create, update, list, remove };
+export default { load, get, create, update, list, remove, getTransactions };
 //export default { getTransactions };

@@ -38,7 +38,8 @@ const config = {
   mongo: {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT
-  }
+  },
+  bdbServer : envVars.BDB_SERVER
 };
 
 export default config;

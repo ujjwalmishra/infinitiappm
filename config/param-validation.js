@@ -26,5 +26,13 @@ export default {
       publicKey: Joi.string().required(),
       signedPublicKey: Joi.string().required()
     }
+  },
+
+  transactions: {
+    body : {
+      publicKey: Joi.string().required(),
+      signedPublicKey: Joi.string().required(),
+      assetId: Joi.string().required()      
+    }
   }
 };
