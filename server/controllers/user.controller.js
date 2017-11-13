@@ -1,4 +1,5 @@
 import User from '../models/user.model';
+import Ownership from '../models/ownership.model'
 
 /**
  * Load user and append to req.
@@ -77,4 +78,39 @@ function remove(req, res, next) {
     .catch(e => next(e));
 }
 
-export default { load, get, create, update, list, remove };
+/**
+ * Get all owned assets.
+ * @return all assets
+ */
+function getMyAssets(req, res, next) {
+  
+}
+
+
+/**
+ * Transfer ownership of asset.
+ * @returns id of transaction
+ */
+function transferAsset(req, res, next) {
+
+}
+
+/**
+ * Create User id asset.
+ * @returns id of Asset
+ */
+ function createUserIdAsset(req, res, next) {
+
+ }
+
+
+/**
+ * Get user transactions history.
+ * @returns {Transactions}
+ */
+ function getTransactions(req, res, next) {
+
+ }
+
+//export default { load, get, create, update, list, remove };
+export default { getTransactions };

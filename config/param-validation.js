@@ -23,8 +23,8 @@ export default {
   // POST /api/auth/login
   login: {
     body: {
-      username: Joi.string().required(),
-      password: Joi.string().required()
+      publicKey: Joi.string().required(),
+      signedPublicKey: Joi.string().required()
     }
   }
 };

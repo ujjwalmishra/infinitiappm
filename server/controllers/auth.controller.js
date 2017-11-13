@@ -1,7 +1,9 @@
 import jwt from 'jsonwebtoken';
 import httpStatus from 'http-status';
+import nacl from 'tweetnacl';
 import APIError from '../helpers/APIError';
 import config from '../../config/config';
+import User from '../models/user.model';
 
 // sample user, used for authentication
 const user = {
@@ -21,17 +23,24 @@ function login(req, res, next) {
   // Idea here was to show how jwt works with simplicity
   console.log("-------------------------------------------------------------------");
   console.log(req.body);
-  if (req.body.username === user.username && req.body.password === user.password) {
-    const token = jwt.sign({
-      username: user.username
-    }, config.jwtSecret);
-    return res.json({
-      token,
-      username: user.username
-    });
-  }
+
+  User.findOne({ publicKey : req.body.publicKey }, function (err, user) {
+    if (err) return handleError(err);
+    
+    const pubKey = nacl.sign.open(req.body.signedPublicKey, req.body.publicKey); //decrypt the message
+
+    if(pubKey == req.body.publicKey) {
+      
+      const token = jwt.sign({ publicKey: user.publicKey }, config.jwtSecret);
+    
+      return res.json({ token, publicKey: user.publicKey });     
+    }
+
+
+  });
 
   const err = new APIError('Authentication error', httpStatus.UNAUTHORIZED, true);
+  
   return next(err);
 }
 
