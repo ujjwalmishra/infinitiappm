@@ -44,7 +44,7 @@ OwnerSchema.statics = {
    * @returns {Promise<User, APIError>}
    */
   findByAssetId(id) {
-    return this.find(assetId: id)
+    return this.find({assetId : id})
       .exec()
       .then((ownership) => {
         if (ownership) {

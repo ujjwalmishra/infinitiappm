@@ -6,7 +6,7 @@ import userCtrl from '../controllers/user.controller';
 const router = express.Router(); // eslint-disable-line new-cap
 
 router.route('/')
-  /** GET /api/users - Get list of users */
+  /** GET /api/user - Get list of user transactions */
   .get(userCtrl.list)
 
   /** POST /api/users - Create new user */

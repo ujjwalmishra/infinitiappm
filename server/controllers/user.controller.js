@@ -83,7 +83,7 @@ function remove(req, res, next) {
  * @return all assets
  */
 function getMyAssets(req, res, next) {
-  
+
 }
 
 
@@ -112,5 +112,5 @@ function transferAsset(req, res, next) {
 
  }
 
-//export default { load, get, create, update, list, remove };
-export default { getTransactions };
+export default { load, get, create, update, list, remove };
+//export default { getTransactions };
