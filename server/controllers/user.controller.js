@@ -104,6 +104,14 @@ function createUserIdAsset(req, res, next) {
 
 }
 
+/**
+ * Mutate Asset ID.
+ * @returns id of Asset
+ */
+function mutateUserIdAsset(req, res, next) {
+  
+}
+
 
 /**
  * Get user transactions history.

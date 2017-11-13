@@ -1,5 +1,10 @@
 import request from 'request-promise';
 import config from '../../config/config';
+import * as driver from 'bigchaindb-driver';
+
+const conn = new driver.Connection(config.bdbServer);
+
+console.log(conn);
 
 function getTransactionByAsset(assetId) {
 	
@@ -12,6 +17,12 @@ function getTransactionByAsset(assetId) {
 
 }
 
+function createAsset(signedTransaction) {
+
+	return conn.postTransaction(signedTransaction);
+
+}
 
 
-export default {getTransactionByAsset};
+
+export default {getTransactionByAsset, createAsset};
