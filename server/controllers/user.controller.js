@@ -102,6 +102,9 @@ function transferAsset(req, res, next) {
  */
 function createUserIdAsset(req, res, next) {
 
+  //console.log(req.body);
+  //bdb.createAsset(req.body.signedTransaction)
+  res.json({stat: 'OK'});
 }
 
 /**
@@ -109,7 +112,7 @@ function createUserIdAsset(req, res, next) {
  * @returns id of Asset
  */
 function mutateUserIdAsset(req, res, next) {
-  
+
 }
 
 
@@ -126,5 +129,5 @@ function getTransactions(req, res, next) {
   
 }
 
-export default { load, get, create, update, list, remove, getTransactions };
+export default { load, get, create, update, list, remove, getTransactions, createUserIdAsset };
 //export default { getTransactions };
