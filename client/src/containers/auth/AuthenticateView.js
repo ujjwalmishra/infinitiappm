@@ -56,7 +56,7 @@ class Authenticate extends Component {
             title={'Create New Infinity ID'}
             onPress={Actions.app}
             raised={false}
-            backgroundColor={'rgba(255,255,255,0.2)'}
+            backgroundColor={'#D6D6D6'}
           />
         </View>
         <View style={[AppStyles.flex1]} />
