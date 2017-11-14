@@ -6,7 +6,7 @@ import bdb from '../bdb';
  * Load user and append to req.
  */
 function load(req, res, next, id) {
-  User.get(id)
+  User.findOne({publicKey : id})
     .then((user) => {
       req.user = user; // eslint-disable-line no-param-reassign
       return next();
@@ -100,11 +100,58 @@ function transferAsset(req, res, next) {
  * Create User id asset.
  * @returns id of Asset
  */
-function createUserIdAsset(req, res, next) {
+function createUserIdAssetDL(req, res, next) {
 
   //console.log(req.body);
   //bdb.createAsset(req.body.signedTransaction)
-  res.json({stat: 'OK'});
+  const user = req.user;
+  user.modifiedAt = new Date();
+
+  user.save()
+    .then(savedUser => 
+      bdb.transferAsset(req.body.signedTransaction)
+
+      .then(resp =>
+
+        res.json(savedUser);
+
+      })
+      .catch(rej =>
+        next(rej)
+      )
+
+      res.json(savedUser)
+      )
+    .catch(e => next(e));
+
+}
+
+function createUserIdAssetBasic(req, res, next) { // add basic user to app collection
+   const user = new User({                        // create an asset in BigchainDb
+      publicKey: req.body.pubKey,
+      mobileNumber: req.body.mobileNumber,
+      email: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
+    });
+    user.save()
+
+    .then(savedUser => 
+
+      bdb.createAsset(req.body.signedTransaction)
+
+      .then(resp =>
+
+        res.json(savedUser);
+
+      })
+      .catch(rej =>
+        next(rej)
+      )
+      //res.json(savedUser;
+
+      )
+    .catch(e => next(e));
 }
 
 /**
@@ -129,5 +176,6 @@ function getTransactions(req, res, next) {
   
 }
 
-export default { load, get, create, update, list, remove, getTransactions, createUserIdAsset };
+export default { load, get, create, update, list, remove, getTransactions, 
+  createUserIdAssetDL, createUserIdAssetBasic };
 //export default { getTransactions };

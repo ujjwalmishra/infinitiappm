@@ -25,9 +25,16 @@ router.route('/')
   /** POST /api/user - get list of user transactions */
   .post(validate(paramValidation.transactions), expressJwt({ secret: config.jwtSecret }), userCtrl.getTransactions);
 
-router.route('/create')
+/** Load user when API with userId route parameter is hit */
+router.param('/userId', userCtrl.load);
+
+router.route('/create/basic') 
   /** POST /api/user/create - create an asset ID */
-  .post(upload.single('avatar') , userCtrl.createUserIdAsset);
+  .post(userCtrl.createUserIdAssetBasic);
+
+router.route('/create/dl') 
+  /** POST /api/user/create - create an asset ID */
+  .post(upload.single('dl') , userCtrl.createUserIdAssetDL);
 
 router.route('/old')
   /** GET /api/user - Get list of user transactions */
@@ -46,7 +53,5 @@ router.route('/old/:userId')
   /** DELETE /api/users/:userId - Delete user */
   .delete(userCtrl.remove);
 
-/** Load user when API with userId route parameter is hit */
-router.param('/old/userId', userCtrl.load);
 
 export default router;

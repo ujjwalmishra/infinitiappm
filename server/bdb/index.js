@@ -4,7 +4,6 @@ import * as driver from 'bigchaindb-driver';
 
 const conn = new driver.Connection(config.bdbServer);
 
-console.log(conn);
 
 function getTransactionByAsset(assetId) {
 	
@@ -19,7 +18,23 @@ function getTransactionByAsset(assetId) {
 
 function createAsset(signedTransaction) {
 
-	return conn.postTransaction(signedTransaction);
+	const txid = signedTransaction.id;
+	conn.postTransaction(signedTransaction);
+	return checkTransactionStatus(txid);
+
+}
+
+function transferAsset(signedTransaction) {
+
+	const txid = signedTransaction.id;
+	conn.postTransaction(signedTransaction);
+	return checkTransactionStatus(txid);
+	
+}
+
+function checkTransactionStatus(txid) {
+
+	return conn.pollStatusAndFetchTransaction(txid);
 
 }
 

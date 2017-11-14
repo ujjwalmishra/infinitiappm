@@ -11,15 +11,28 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  firstName: {
+    type: String
+  },
+  lastName: {
+    type: String
+  },
   mobileNumber: {
     type: String,
     required: true,
     match: [/^[1-9][0-9]{9}$/, 'The value of path {PATH} ({VALUE}) is not a valid mobile number.']
   },
+  email : {
+    type: String
+  },
   documents : {
     type: [String]
   },
   createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  modifiedAt : {
     type: Date,
     default: Date.now
   }
