@@ -109,18 +109,12 @@ function createUserIdAssetDL(req, res, next) {
 
   user.save()
     .then(savedUser => 
+    {
       bdb.transferAsset(req.body.signedTransaction)
 
-      .then(resp =>
-
-        res.json(savedUser);
-
-      })
-      .catch(rej =>
-        next(rej)
-      )
-
-      res.json(savedUser)
+      .then(resp => res.json(savedUser))
+      .catch(rej =>   next(rej) );
+    }
       )
     .catch(e => next(e));
 
@@ -138,18 +132,17 @@ function createUserIdAssetBasic(req, res, next) { // add basic user to app colle
 
     .then(savedUser => 
 
+    {
       bdb.createAsset(req.body.signedTransaction)
 
       .then(resp =>
 
-        res.json(savedUser);
-
-      })
+        res.json(savedUser))
       .catch(rej =>
         next(rej)
       )
       //res.json(savedUser;
-
+      }
       )
     .catch(e => next(e));
 }
