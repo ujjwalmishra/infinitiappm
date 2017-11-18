@@ -112,11 +112,10 @@ function createUserIdAssetDL(req, res, next) {
     .then(savedUser => 
     {
       bdb.transferAsset(req.body.signedTransaction)
-
       .then(resp => res.json(savedUser))
       .catch(rej =>   next(rej) );
     }
-      )
+    )
     .catch(e => next(e));
 
 }
