@@ -1,6 +1,7 @@
 import User from '../models/user.model';
 import Ownership from '../models/ownership.model';
 import bdb from '../bdb';
+import validation from '../validator';
 
 /**
  * Load user and append to req.
@@ -120,6 +121,16 @@ function createUserIdAssetDL(req, res, next) {
 
 }
 
+function createUserIdAssetSSN(req, res, next) {
+
+  const ssn = req.body.ssn;
+
+  validation.validateAssetSSN(ssn)
+    .then(resp => res.json(resp))
+    .catch(rej => next(rej));
+
+}
+
 function createUserIdAssetBasic(req, res, next) { // add basic user to app collection
    const user = new User({                        // create an asset in BigchainDb
       publicKey: req.body.pubKey,
@@ -170,5 +181,5 @@ function getTransactions(req, res, next) {
 }
 
 export default { load, get, create, update, list, remove, getTransactions, 
-  createUserIdAssetDL, createUserIdAssetBasic };
+  createUserIdAssetDL, createUserIdAssetSSN, createUserIdAssetBasic };
 //export default { getTransactions };

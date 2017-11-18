@@ -36,6 +36,10 @@ router.route('/create/dl')
   /** POST /api/user/create - create an asset ID */
   .post(upload.single('dl') , userCtrl.createUserIdAssetDL);
 
+router.route('/create/ssn')
+  /** POST api for validating ssn **/
+  .post(userCtrl.createUserIdAssetSSN);
+
 router.route('/old')
   /** GET /api/user - Get list of user transactions */
   .get(userCtrl.list)
