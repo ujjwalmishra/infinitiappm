@@ -39,7 +39,8 @@ const config = {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT
   },
-  bdbServer : envVars.BDB_SERVER
+  bdbServer : envVars.BDB_SERVER,
+  validatorServer : envVars.VALIDATOR_SERVER
 };
 
 export default config;
