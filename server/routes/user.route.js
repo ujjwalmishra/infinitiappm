@@ -4,6 +4,7 @@ import paramValidation from '../../config/param-validation';
 import userCtrl from '../controllers/user.controller';
 import expressJwt from 'express-jwt';
 import config from '../../config/config';
+import bdbdriver from '../temp';
 const multer = require('multer') //TO DO need to fix this
 
 //const UPLOAD_PATH = 'upload';
@@ -39,6 +40,14 @@ router.route('/create/dl')
 router.route('/create/ssn')
   /** POST api for validating ssn **/
   .post(userCtrl.createUserIdAssetSSN);
+
+router.route('/test/asset/keypair')
+  /** POST api to get the public private key pair**/
+  .post(bdbdriver.showKeyPair);
+
+router.route('/test/asset/signedmessage')
+  /** POST api to get the signed message**/
+  .post(bdbdriver.getSignedMessage);
 
 router.route('/old')
   /** GET /api/user - Get list of user transactions */
