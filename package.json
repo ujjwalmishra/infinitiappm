@@ -41,6 +41,7 @@
     "boilerplate"
   ],
   "dependencies": {
+    "base-58": "0.0.1",
     "bigchaindb-driver": "0.3.0",
     "bluebird": "3.4.6",
     "body-parser": "1.15.2",
