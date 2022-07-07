@@ -867,6 +867,10 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
 
+base-58@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/base-58/-/base-58-0.0.1.tgz#85d3e70251075661933388f831d1eb8b8f6314e3"
+
 base-x@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/base-x/-/base-x-3.0.2.tgz#bf873861b7514279b7969f340929eab87c11d130"
@@ -3986,8 +3990,8 @@ mocha@3.2.0:
     supports-color "3.1.2"
 
 moment@2.x.x:
-  version "2.19.2"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.2.tgz#8a7f774c95a64550b4c7ebd496683908f9419dbe"
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
 
 mongodb-core@2.1.2:
   version "2.1.2"
